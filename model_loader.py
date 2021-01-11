@@ -1,4 +1,5 @@
 """
+YOLO v3 modified from https://github.com/eriklindernoren/PyTorch-YOLOv3
 You need to implement all four functions in this file and also put your team info as a variable
 Then you should submit the python file with your model class, the state_dict, and this file
 """
@@ -36,12 +37,6 @@ class ModelLoader():
     contact_email = 'nl1668@nyu.edu'
 
     def __init__(self, model_file1='best_roadmap.pt', model_file2 = 'best_bounding_box.pt'):
-        # You should 
-        #       1. create the model object
-        #       2. load your state_dict
-        #       3. call cuda()
-        # self.model = ...
-        # 
         self.model_encoder = VAE().to(device)
         checkpoint1 = torch.load(model_file1)
         self.model_encoder.load_state_dict(checkpoint1['encode_state_dict'])
